@@ -1,0 +1,19 @@
+
+import java.awt.Color;
+
+
+
+
+public class BlackJackApp {
+
+    public static void main(String[] args) {
+        BlackJackFrame b = new BlackJackFrame();
+        b.setBounds(100,50,1200,700);
+        b.getContentPane().setBackground(Color.green);
+        b.setVisible(true);
+        
+        b.loadCards();
+    }
+    
+    
+}

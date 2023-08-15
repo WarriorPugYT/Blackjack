@@ -1,0 +1,72 @@
+
+import java.util.ArrayList;
+
+
+/*--------------------------------------------------------------
+
+///S//U//B////T//O///W//A//R//R//I//O//R///P//U//G///
+
+    File: BlackJackHand
+    Date: 1/25/23
+    Purpose: Small Blackjack Game 
+    Author: Warrior Pug
+    
+
+----------------------------------------------------------------*/
+public class BlackJackHand {
+
+    private ArrayList<Integer> cards = new ArrayList<Integer>(); //Array list of values representing playing cards
+
+    public void addCard(int val) { //Add a new card to the hand
+
+        cards.add(val);
+
+    }
+    
+    public void remCard(int val) { //Renove a card from the hand
+
+        cards.remove(val);
+
+    }
+    
+
+    public void clearHand() { //Reset Hand
+        for (int i = 0; i < cards.size();) {
+            cards.remove(i);
+        }
+    }
+
+    public int getHandVal() { //Add up the value of cards in the hand
+        int aceNum = 0; //Number of aces in the hand
+        int total = 0;
+        for (int i = 0; i < cards.size(); i++) {
+            if (cards.get(i) < 11 && cards.get(i) != 1) {
+                total += cards.get(i); //Not an ace or a face card, value added is the cards value
+            } else if (cards.get(i) == 1) {
+                aceNum++; //Card is an ace, add to ace count
+            } else {
+                total += 10; //Face card, add 10
+            }
+        }
+        for (int i = 0; i < aceNum; i++) {
+            if (total <= 11) {
+                total += 11; //Aces count as 11
+            } else {
+                total += 1; //Aces count as 1
+            }
+        }
+
+        return total;
+    }
+
+   
+    public int getCardVal(int cardNum) { //Returns the value of an individual card in the hand
+
+        return cards.get(cardNum);
+    }
+
+    public int getCardNum() { //Returns how many cards are in the hand
+
+        return cards.size();
+    }
+}
